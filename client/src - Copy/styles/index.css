@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+body {
+  background-color: #c0bfc0b7;
+  /* background-color: #4b4a4b; */
+  /* background-color:#dddddd81; */
+  /* background-color:#747475cc; */
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* display: flex;
+  justify-content: center; */
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../resources/bg/register-bg.jpg') , linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 0));
+    background-blend-mode: overlay;
+    background-position: center center;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+}
+
+/* #root {
+  display: grid;
+  place-items: center center;
+} */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+button:focus{
+  outline: none;
+}
+

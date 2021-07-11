@@ -1,0 +1,15 @@
+{
+  "short_name": "Giggle App",
+  "name": "Giggle ChatBot WebApp",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "600x600",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
