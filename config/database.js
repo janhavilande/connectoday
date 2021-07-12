@@ -10,7 +10,7 @@ const configureDB = () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false
-    })
+    })     
         .then(()=>{console.log('connected to connect-db...')})
         .catch((err) => console.log(err))
 }
