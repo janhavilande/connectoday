@@ -4,11 +4,11 @@ const { chatSchema } = require('./chat')
 const Schema = mongoose.Schema
 const groupSchema = new Schema({
   name: {
-    type: String,
+    type: String,  
     required: true,
   },
   description: {
-    type: String,
+    type: String,  
   },
   coverImg: {
     type: String,

@@ -21,7 +21,7 @@ export const startRegister = (fd, redirect ,regEnable) => {
             regEnable()
           }
         } else {
-          alert('Successfully registered')
+          alert('You have successfully registered to connectoday:)')
           regEnable()
           redirect()
         }
@@ -43,7 +43,7 @@ export const startLogin = (fd, redirect) => {
         } else {
           const authToken = response.data.token
           localStorage.setItem('token', authToken)
-          alert('Login Successful')
+          alert('Login Successful mate! ')
           redirect()
           window.location.reload()
         }

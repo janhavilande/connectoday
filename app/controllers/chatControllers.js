@@ -18,7 +18,7 @@ chatControllers.sendMsg = (req,res) => {
 
   const friendId = req.params.id
   const { message } = req.body
-  //console.log(friendId, message ,'SEND MESSAGE----------------')
+  //console.log(friendId, message ,'SEND MESSAGE----')
   //!receivers database
   User.findOneAndUpdate(
     {
@@ -35,6 +35,7 @@ chatControllers.sendMsg = (req,res) => {
   )
     .then((user) => {
       if (user) {
+        
         //console.log(user)
 
         const getUpdatedFriend = user.friends.find(friend => JSON.stringify(friend.info) === JSON.stringify(req.user._id))

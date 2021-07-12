@@ -19,26 +19,23 @@ import VideoCall from '../video-call/VideoCall'
 import InterCom from './InterCom'
 import VideoListener from '../socket-listeners/VideoListener'
 import MessageListener from '../socket-listeners/MessageListener'
-import PostManager from '../posts/PostManager'
-import PostListener from '../socket-listeners/PostListener'
-import Notifications from './Notifications';
+
 
 function App(props) {
 
-  //! storing session via socket generated id
+  //storing session via socket generated id
   const { user } = props
 
   useEffect(() => {
     socket.emit('userId', { userId: user._id })
   }, [user._id])  // only changes when there is change in account info, or will remain consistent
-  //!-------------sockets
+  //sockets
   return (
     <BrowserRouter>
       <div>
         <Navbar />
         <VideoListener />
         <MessageListener />
-        <PostListener />
         {/* <Container> */}
           <Switch>
             <Route exact path='/' component={Home} />
@@ -50,8 +47,7 @@ function App(props) {
             <Route path='/users/chat' component={ChatShell} />
             <Route path='/users/videocall/:id' component={VideoCall} />
             <Route path='/users/videocall/' component={VideoCall} />
-            <Route path='/users/posts/' component={PostManager} />
-            <Route path='/users/notifications/' component={Notifications} />
+
           </Switch>
         {/* </Container> */}
       </div>

@@ -86,7 +86,7 @@ class Login extends Component {
             <small>
               Don't have an account?
               <Link className='link' to='/users/register'>
-                Sign Up
+                Sign Up Here
               </Link>
             </small>
           </form>

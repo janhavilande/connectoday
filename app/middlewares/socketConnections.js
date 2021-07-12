@@ -4,15 +4,14 @@ const crypto = require('crypto')
 const socketConnections = (io) => {
     //listening to socket connections
     io.on('connection', socket => { // establishing/listening a connection from client side
-        //console.log('connected client to the socket', socket.id)
 
         socket.on('userId',pass=> {
             //console.log('pass customId', pass)
             const store_session = {
                 socketId: socket.id
-            }
+            } 
             if(pass.userId){
-            // 🔥 mapping the connection of socket to user id to the database   
+            //mapping connection of socket to user id to the database   
             Socket.findByIdAndUpdate({_id: pass.userId},store_session,{new:true, upsert:true})
                 .then(map => {
                     console.log(map,'stored user session')

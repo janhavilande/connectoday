@@ -11,7 +11,7 @@ const socketSchema = new Schema({
         required: true
     },
     inCall: {
-        isTrue: {
+        isTrue: {  
             type: Boolean,
             default: false,
         },

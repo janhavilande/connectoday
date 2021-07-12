@@ -21,11 +21,8 @@ const registerSchema = object().shape({
   password: string().required().min(6, 'minimum 6 characters'),
   confirmPass: string().oneOf([ref('password')], 'password must match'),
 
-  //🧾https://til.hashrocket.com/posts/vahuw4phan-check-the-password-confirmation-with-yup
+  //https://til.hashrocket.com/posts/vahuw4phan-check-the-password-confirmation-with-yup
 })
-
-// ! https://dev.to/finallynero/react-form-using-formik-material-ui-and-yup-2e8h
-// ! https://medium.com/@kmerandi25/react-form-validation-with-formik-material-ui-and-yup-1cd92eac887
 
 function Register(props) {
   const [showPass, setShowPass] = useState(false)

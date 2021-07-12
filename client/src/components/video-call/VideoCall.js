@@ -112,8 +112,6 @@ function VideoCall(props) {
         if (userVideo.current) {
           userVideo.current.srcObject = stream
         }
-        // 🔥 https://stackoverflow.com/questions/11642926stop-close-webcam-which-is-opened-by-navigator-getusermedia
-        // 🔥 https://developers.google.com/web/updates/2015/07/mediastream-deprecationshl=en#stop-ended-and-active
         if (query.receiving) {
           setCallerSignal(signal.signal)
           setCaller(signal.from)

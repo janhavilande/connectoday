@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import socket from '../../services/socket'
 import { connect } from 'react-redux'
-import { addNewPublicPost, addNewFriendPost } from '../../redux/actions/postsAction'
 
 function PostListener(props) {
     //! SOCKETS

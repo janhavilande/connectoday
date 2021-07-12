@@ -4,7 +4,7 @@ const jwt = require = require('jsonwebtoken')
 const usersControllers = {}
 
 
-//-----------Register User
+//Register
 usersControllers.register = (req,res) => {
     const body = req.body
     const user = new User(body)
@@ -13,7 +13,7 @@ usersControllers.register = (req,res) => {
 }
 
 
-//-----------Sign-in User
+//Sign in User
 usersControllers.login = (req,res) => {
     const body = req.body
     User.findOne({email: body.email})
@@ -40,7 +40,7 @@ usersControllers.login = (req,res) => {
 }
 
 
-//------------sent account details
+//Account Detail
 usersControllers.account = (req,res) => {
     User.findOne({_id: req.user._id})
         .populate('friends.info','username profilePicUrl')

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-
 import { Card, CardList } from '../reusables/Card'
 import { startCancelFriendRequest, startAcceptFriendRequest, startRejectFriendRequest, startFriendRemove, startGetFriendList } from '../../redux/actions/friendsAction'
 

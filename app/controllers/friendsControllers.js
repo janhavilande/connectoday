@@ -11,7 +11,6 @@ friendsControllers.cancelRequest = (req,res) => {
     {
         $pull: { 
             friends: { info: req.user._id },
-            notifications: {info: req.user._id}
         }
     }).catch(err => res.json(err))
 
@@ -20,7 +19,7 @@ friendsControllers.cancelRequest = (req,res) => {
     {
         $pull: { friends: { info: friendId } }
     },
-    { new : true })
+    { new : true }) 
     .then(user => {
         if(user){
             res.json(
@@ -56,11 +55,6 @@ friendsControllers.acceptRequest = (req,res) => {
                 //! the requester update
                 User.findOneAndUpdate({ _id: friendId , 'friends.info': req.user._id },{
                     $set: { 'friends.$.status': 'Accepted' },
-                    $push: {
-                        notifications: { 
-                            info: req.user._id,
-                            message: `${req.user.username} accepted your friend request`
-                        }}
                 })
                 .then(user => {
                     if(!user){
@@ -74,16 +68,11 @@ friendsControllers.acceptRequest = (req,res) => {
                 //! receiver update
                 User.findOneAndUpdate({ _id: req.user._id , 'friends.info': friendId},{
                     $set: { 'friends.$.status': 'Accepted' },
-                    $push: { notifications : {
-                        info: friendId,
-                        message: `You are now friend with ${friendName}`
-                    }}
                 }, {new:true})
                     .then(user => {
                         if(user){
                             User.findOne({_id: user._id})
                                 .populate('friends.info','username profilePicUrl')
-                                .populate('notifications.info','username profilePicUrl')
                                 .then(user => {
                                     if(user){
                                         res.json({
@@ -238,8 +227,6 @@ friendsControllers.friendList = (req,res) => {
         .populate('friends.info', 'username profilePicUrl')
         .then(user => {
             const listFriends = user.friends.filter(friend => friend.status !== 'Rejected')
-            
-            //🧾 https://stackoverflow.com/questions/45924821/javascript-sorting-array-of-objects-by-string-property
             listFriends.sort((a,b) => {
                 return (a.status < b.status) ? 1 : ((b.status < a.status) ? -1 : 0)
             })

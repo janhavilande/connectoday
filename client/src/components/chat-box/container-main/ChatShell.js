@@ -40,7 +40,7 @@ function ChatShell(props) {
         const fd = {
             message: msg
         }
-        console.log('SEND MESSAGE -------->',selectedId,msg)
+        console.log('SEND MESSAGE->',selectedId,msg)
         props.dispatch(startSendMsg(selectedId,fd))
     }
 

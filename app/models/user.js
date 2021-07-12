@@ -3,10 +3,8 @@ const bcryptjs = require('bcryptjs')
 const isEmail = require('validator/lib/isEmail')
 const md5 = require('crypto-js/md5')
 const { friendSchema } = require('./friend')
-const { notificationSchema } = require('./notification')
 const { groupSchema } = require('./group')
-const { postSchema } = require('./post')
-const { friendPostSchema } = require('./friendPost')
+
 
 
 const Schema = mongoose.Schema
@@ -43,11 +41,8 @@ const userSchema = new Schema({
   country: String,
   phone: Number,
   gender: String,
-  notifications: [notificationSchema],
   friends : [friendSchema],
   groups: [groupSchema],
-  posts: [postSchema],
-  friendPosts: [friendPostSchema],
   createdAt: {
     type: Date,
     default: Date.now
@@ -56,11 +51,8 @@ const userSchema = new Schema({
 
 userSchema.pre('save', function(next){
     console.log(this.password)
-    // 🚀 creating a default profilePic generated randomly or by gravatar user database -> refs
-    // https://www.npmjs.com/package/crypto-js
-    // http://en.gravatar.com/site/implement/images/
-    // http://en.gravatar.com/site/implement/hash/
-    //🔥 gravatar only accepts md5 hashed values to search the user gravatar database to set random gravatar or fetch existing
+    // creating a default profilePic generated randomly or by gravatar user database -> refs
+    //gravatar only accepts md5 hashed values to search the user gravatar database to set random gravatar or fetch existing
     const hashed = md5(this.email.toLowerCase()).toString() 
     const url = `https://www.gravatar.com/avatar/${hashed}?s=200&d=identicon`
     this.profilePicUrl = url

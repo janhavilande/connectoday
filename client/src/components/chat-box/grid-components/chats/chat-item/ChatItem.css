@@ -1,22 +1,22 @@
 .chat {
-    display: grid;
-    grid-template-columns: 40px 1fr max-content;
-    grid-gap: 10px;
-    color: #ddd;
-    font-size: 1.3rem;
-    border-bottom: 1px solid #002C88;
-    padding: 20px 20px 20px 15px;
+  display: grid;
+  grid-template-columns: 40px 1fr max-content;
+  grid-gap: 10px;
+  color: #ddd;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #222f52;
+  padding: 20px 20px 20px 15px;
 }
-  
+
 .chat.active,
 .chat:hover {
-  background: #002C88;
+  background: #222f52;
 }
-  
+
 .chat:hover {
   cursor: pointer;
 }
-  
+
 .chat > img {
   grid-row: span 2;
   height: 40px;
@@ -33,7 +33,7 @@
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
-  
+
 .created-date {
   color: #ddd;
   white-space: nowrap;

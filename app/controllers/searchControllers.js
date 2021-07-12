@@ -6,7 +6,7 @@ searchControllers.search = (req,res) => {
     const search = req.body.searchUser
     //console.log(search)
     //console.log(req.user)
-    const str= ('.*var.*').replace('var', search) //? 🚀--> regexr.com/56ucp -> /\w*${search}\w*/gi
+    const str= ('.*var.*').replace('var', search)
     const regex = RegExp(str)
     //console.log(regex)
     User.find({ 
@@ -16,8 +16,7 @@ searchControllers.search = (req,res) => {
     },'username profilePicUrl friends')
         .then(async users => {
             if(users.length){
-                //? 🧾 https://dev.to/nyagarcia/array-map-async-await-2cif
-                //? 🔥  https://www.taniarascia.com/promise-all-with-async-await/
+
                 let listed = await Promise.all(
                     users.map(async user => {
                         const dataPack = {
@@ -53,7 +52,7 @@ searchControllers.search = (req,res) => {
                                 return Object.assign({}, dataPack, { 
                                     isFriend: true , 
                                     status: getFriendStatus.status,
-                                    // 🔥found the requester id -> if sendByMe is false in his database then it is sent by the requester -> so we use negation
+
                                     sendByMe: !getFriendStatus.sendByMe
                                 })
                             }
@@ -66,16 +65,10 @@ searchControllers.search = (req,res) => {
                             //return Object.assign({},user) -> send the entire schema structure
                         }
                     })
-                )  //!----- Promise ALL
-                //console.log('listed',listed)
-                //console.log('**************************LAST PRIORITY ++++++++++++++++++++++')
+                )
                 
                 // sort array to show friended list first
                 listed.sort((a,b) => { return b.isFriend - a.isFriend
-                    // 🔥 https://stackoverflow.com/questions/17387435/javascript-sort-array-of-objects-by-a-boolean-property
-                    // let A = a.isFriend,
-                    //     B = b.isFriend
-                    // return A === B ? 0 : A ? -1 : 1
                 })
                 res.json(listed)
                 // ! res.json(users)
@@ -91,7 +84,7 @@ searchControllers.search = (req,res) => {
 }
 
 
-//-------------sent friend request
+//sent friend request
 searchControllers.sendRequest = (req,res) => {
     const friendId = req.params.id
     //console.log('REQUEST ID', req.params.id)

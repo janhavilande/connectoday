@@ -1,13 +1,11 @@
 import React from 'react'
 import { useHistory, Redirect  } from 'react-router-dom'
-// ! https://stackoverflow.com/questions/54579730/react-hooks-with-react-router-v4-how-do-i-redirect-to-another-route
+
 
 // material-ui 
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
-import Badge from '@material-ui/core/Badge'
 import { BsSearch } from 'react-icons/bs'
-import { FiMail } from 'react-icons/fi'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { BsChatDots } from 'react-icons/bs'
 import { FaUserFriends } from 'react-icons/fa'
@@ -20,7 +18,6 @@ import './Navbar.css'
 
 import logo from './_reuse/logo.png'
 import { startGetSearch } from '../../../redux/actions/searchAction'
-import PostIcon from './_reuse/post.png'
 import AppBar from './AppBar'
 
 
@@ -62,7 +59,7 @@ function Nav(props) {
                                 <TextField
                                     className='search-input'
                                     variant='outlined'
-                                    placeholder='Search...'
+                                    placeholder='Search Connect Users...'
                                     onChange={handleChange}
                                     value={searchUser}
                                     InputProps={{
@@ -74,17 +71,6 @@ function Nav(props) {
                                     }}
                                 />
                             </form>
-                            <NavItem 
-                                to='/users/notifications' 
-                                styleClass='badge'
-                                styleClassLi='badge-li'
-                                name={
-                                        <Badge badgeContent={props.user.notifications.length} color="secondary">
-                                            <FiMail />
-                                        </Badge>
-                                    }
-                            />
-                            <NavItem to='/users/posts' name={<img src={PostIcon} alt='postIcon'/>} styleClass='post-icon-nav'/>
                             <NavItem to='/users/friends' name={<FaUserFriends/>} />
                             <NavItem to='/users/chat' name={<BsChatDots/>}/>
                             <NavItem to='#' name={<FaSignOutAlt/>} styleClass='sign-out' onClick = {handleLogout} />

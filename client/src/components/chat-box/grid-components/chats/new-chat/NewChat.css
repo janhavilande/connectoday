@@ -1,5 +1,5 @@
 #new-message-container {
-    background: #0048AA;
+  background: #222f52;
 }
 
 #new-message-container {
@@ -20,7 +20,7 @@
   justify-content: center;
   background: #eee;
   border-radius: 100%;
-  color: #002C88;
+  color: #222f52;
   text-decoration: none;
   font-size: 3rem;
 }

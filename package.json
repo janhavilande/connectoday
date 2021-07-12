@@ -1,7 +1,7 @@
 {
   "name": "Connectoday",
   "version": "1.0.0",
-  "description": "ms teams clone",
+  "description": "ms teams clone:meet,connect, collaborate",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -14,7 +14,7 @@
     "npm": "6.x"
   },
   "author": "Janhavi Lande",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "crypto-js": "^4.0.0",
