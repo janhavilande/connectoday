@@ -6,7 +6,7 @@ const friendsControllers = {}
 friendsControllers.cancelRequest = (req,res) => {
     const friendId = req.params.id
 
-    //! cancel request from the receivers id -> check if the request user is present
+    //cancel request from the receivers id -> check if the request user is present
     User.findOneAndUpdate({_id: friendId, 'friends.info': req.user._id},
     {
         $pull: { 
@@ -14,7 +14,7 @@ friendsControllers.cancelRequest = (req,res) => {
         }
     }).catch(err => res.json(err))
 
-    //! cancel request from the user 
+    //cancel request from the user 
     User.findOneAndUpdate({_id: req.user._id, 'friends.info': friendId},
     {
         $pull: { friends: { info: friendId } }

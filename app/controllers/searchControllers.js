@@ -1,7 +1,7 @@
 const User = require('../models/user')
 const searchControllers = {}
 
-//!------------search for users
+//search for users
 searchControllers.search = (req,res) => {
     const search = req.body.searchUser
     //console.log(search)
