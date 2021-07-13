@@ -22,7 +22,6 @@ app.use('/',routes)
 
 app.io = io  // making it available in the middlewares/controllers
 
-
 // setting up socket connections function
 
 const socketConnections = require('./app/middlewares/socketConnections')

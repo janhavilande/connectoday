@@ -19,7 +19,7 @@ chatControllers.sendMsg = (req,res) => {
   const friendId = req.params.id
   const { message } = req.body
   //console.log(friendId, message ,'SEND MESSAGE----')
-  //!receivers database
+  //receivers database
   User.findOneAndUpdate(
     {
       _id: friendId,
@@ -65,7 +65,7 @@ chatControllers.sendMsg = (req,res) => {
     .catch((err) => res.json(err))
 
 
-  //! sender database
+  //sender database
   User.findOneAndUpdate(
     {
       _id: req.user._id,
@@ -118,9 +118,9 @@ chatControllers.fileUpload = (req, res) => {
 
   const friendId = req.params.id
   const { type } = req.body
-  //console.log(friendId, message ,'SEND MESSAGE----------------')
+  //console.log(friendId, message ,'SEND MESSAGE')
 
-  //!receivers database
+  //receivers database
   User.findOneAndUpdate(
     {
       _id: friendId,

@@ -107,7 +107,7 @@ const socketConnections = (io) => {
             })
                 .then(getUserSocket => {
                     if(getUserSocket){
-                        console.log(getUserSocket, '----->Close connection')
+                        console.log(getUserSocket, '-->Close connection')
                         const { socketId } = getUserSocket
                         io.to(socketId).emit('callChannelClosed',{
                             message: 'connection dropped'

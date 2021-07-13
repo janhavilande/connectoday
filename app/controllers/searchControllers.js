@@ -40,7 +40,7 @@ searchControllers.search = (req,res) => {
                             }
                         }
                         if(user.friends.length){
-                            // TODO filter isFriend
+                                //is friend?
 
                             let alreadyFriend = await checkFriend()
                             

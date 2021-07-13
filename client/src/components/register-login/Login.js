@@ -78,7 +78,7 @@ class Login extends Component {
                 <label htmlFor='show'>Show password</label>
               </div>
               <Link className='link' to='#'>
-                Forgot Password ?
+                Forgot Password?
               </Link>
             </div>
 
@@ -86,7 +86,7 @@ class Login extends Component {
             <small>
               Don't have an account?
               <Link className='link' to='/users/register'>
-                Sign Up Here
+                Sign Up!
               </Link>
             </small>
           </form>

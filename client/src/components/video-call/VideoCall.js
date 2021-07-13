@@ -38,7 +38,8 @@ function VideoCall(props) {
   let receiverId = props.match.params.id
   console.log('params id -->', receiverId)
   let userId = user?._id
-  const query = queryString.parse(props.location.search, {
+  const query = queryString.parse(props.location.
+    search, {
     parseBooleans: true,
   })
   console.log(query, 'incoming-call query')
@@ -295,3 +296,7 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(VideoCall)
+
+
+
+

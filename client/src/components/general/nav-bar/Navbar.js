@@ -1,11 +1,11 @@
 import React from 'react'
 import { useHistory, Redirect  } from 'react-router-dom'
 
-
 // material-ui 
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
 import { BsSearch } from 'react-icons/bs'
+import { FiMail } from 'react-icons/fi'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { BsChatDots } from 'react-icons/bs'
 import { FaUserFriends } from 'react-icons/fa'
@@ -59,7 +59,7 @@ function Nav(props) {
                                 <TextField
                                     className='search-input'
                                     variant='outlined'
-                                    placeholder='Search Connect Users...'
+                                    placeholder='Search...'
                                     onChange={handleChange}
                                     value={searchUser}
                                     InputProps={{
